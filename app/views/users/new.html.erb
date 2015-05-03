@@ -3,6 +3,9 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
+    <% @user.errors.each do |attr,msg| %>
+        <%= msg %><br>
+    <% end %>
     <%= form_for(@user) do |f| %>
         <%= f.label(:firstname, 'First Name') %>
         <%= f.text_field :firstname %><br>
