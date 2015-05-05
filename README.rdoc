@@ -2,6 +2,8 @@
 
 This repo represents my app that I will be creating at Rails School. 
 
+**** Got to 8.2.5 ****
+
 The_Trafficker is a traffic management/task management tool used to help teams collaborate and for individuals to keep track fo their own tasks.
 
 Things you may want to cover:
