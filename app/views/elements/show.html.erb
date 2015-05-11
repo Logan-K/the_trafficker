@@ -7,7 +7,10 @@
 
 <p>
   <strong>User:</strong>
-  <%= @element.user %>
+<% @element.users.each do |use| %>
+      <%= use.lastname %>
+  <% end %>
+
 </p>
 
 <p>
@@ -15,10 +18,7 @@
   <%= @element.progress %>
 </p>
 
-<p>
-  <strong>Int:</strong>
-  <%= @element.int %>
-</p>
+
 
 <%= link_to 'Edit', edit_element_path(@element) %> |
 <%= link_to 'Back', elements_path %>
