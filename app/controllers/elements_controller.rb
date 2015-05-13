@@ -26,6 +26,8 @@ class ElementsController < ApplicationController
   def create
     @element = Element.new(element_params)
 
+
+
     respond_to do |format|
       if @element.save
         format.html { redirect_to @element, notice: 'Element was successfully created.' }
@@ -35,6 +37,12 @@ class ElementsController < ApplicationController
         format.json { render json: @element.errors, status: :unprocessable_entity }
       end
     end
+
+    #Add row in elements_users too
+    console
+    sql = "INSERT INTO elements_users VALUES (#{@element.user_id}, #{@element.id})"
+    records_array = ActiveRecord::Base.connection.execute(sql)
+
   end
 
   # PATCH/PUT /elements/1
@@ -69,6 +77,6 @@ class ElementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def element_params
-      params.require(:element).permit(:description, :user_id, :progress, :int)
+      params.require(:element).permit(:description, :user_id, :progress)
     end
 end
